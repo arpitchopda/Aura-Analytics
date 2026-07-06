@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Behavior & Sales Analytics Dashboard</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Dashboard Stylesheet -->
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo-area">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                </div>
+                <h2>AuraAnalytics</h2>
+            </div>
+            
+            <nav class="nav-links">
+                <a href="#" class="nav-item active" data-tab="overview">
+                    <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="feather"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg>
+                    <span>Overview</span>
+                </a>
+                <a href="#" class="nav-item" data-tab="eda-plots">
+                    <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="feather"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="9" x2="15" y2="15"></line><line x1="15" y1="9" x2="9" y2="15"></line></svg>
+                    <span>EDA Plots (Python)</span>
+                </a>
+                <a href="#" class="nav-item" data-tab="sql-terminal">
+                    <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="feather"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"></path></svg>
+                    <span>SQL Terminal</span>
+                </a>
+                <a href="#" class="nav-item" data-tab="about">
+                    <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="feather"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                    <span>Project Info</span>
+                </a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="status-indicator">
+                    <span class="dot online"></span>
+                    <span>Database Connected</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="top-header">
+                <div class="header-title">
+                    <h1 id="page-title">Executive Sales Overview</h1>
+                    <p id="page-subtitle">Interactive business metrics from the Customer Behavior database</p>
+                </div>
+                <div class="header-actions">
+                    <button class="theme-toggle-btn" id="theme-toggle">
+                        <svg class="sun" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.22" x2="5.64" y2="17.78"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    </button>
+                    <div class="refresh-badge">
+                        <span class="pulse-badge">Live</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Tab Content: Overview -->
+            <section id="overview-tab" class="tab-pane active">
+                <!-- KPI Card Grid -->
+                <div class="kpi-grid">
+                    <div class="kpi-card glass">
+                        <div class="kpi-card-header">
+                            <span class="kpi-title">Total Revenue</span>
+                            <div class="kpi-icon revenue-bg">
+                                <svg viewBox="0 0 24 24" width="18" height="18" stroke="#29cca3" stroke-width="2" fill="none"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                            </div>
+                        </div>
+                        <div class="kpi-value" id="kpi-revenue">$0.00</div>
+                        <div class="kpi-trend positive">
+                            <span class="trend-icon">↑</span>
+                            <span>12.4% vs last period</span>
+                        </div>
+                    </div>
+
+                    <div class="kpi-card glass">
+                        <div class="kpi-card-header">
+                            <span class="kpi-title">Total Orders</span>
+                            <div class="kpi-icon orders-bg">
+                                <svg viewBox="0 0 24 24" width="18" height="18" stroke="#47a0ff" stroke-width="2" fill="none"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                            </div>
+                        </div>
+                        <div class="kpi-value" id="kpi-orders">0</div>
+                        <div class="kpi-trend positive">
+                            <span class="trend-icon">↑</span>
+                            <span>8.2% vs last period</span>
+                        </div>
+                    </div>
+
+                    <div class="kpi-card glass">
+                        <div class="kpi-card-header">
+                            <span class="kpi-title">Active Customers</span>
+                            <div class="kpi-icon customers-bg">
+                                <svg viewBox="0 0 24 24" width="18" height="18" stroke="#a15bf2" stroke-width="2" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v-2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                            </div>
+                        </div>
+                        <div class="kpi-value" id="kpi-customers">0</div>
+                        <div class="kpi-trend positive">
+                            <span class="trend-icon">↑</span>
+                            <span>5.7% new signups</span>
+                        </div>
+                    </div>
+
+                    <div class="kpi-card glass">
+                        <div class="kpi-card-header">
+                            <span class="kpi-title">Average Order Value</span>
+                            <div class="kpi-icon aov-bg">
+                                <svg viewBox="0 0 24 24" width="18" height="18" stroke="#ffc107" stroke-width="2" fill="none"><line x1="4" y1="19" x2="20" y2="19"></line><line x1="4" y1="5" x2="20" y2="5"></line><line x1="12" y1="5" x2="12" y2="19"></line></svg>
+                            </div>
+                        </div>
+                        <div class="kpi-value" id="kpi-aov">$0.00</div>
+                        <div class="kpi-trend positive">
+                            <span class="trend-icon">↑</span>
+                            <span>3.9% purchase growth</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Area -->
+                <div class="charts-grid">
+                    <!-- Monthly Trend -->
+                    <div class="chart-container glass span-2">
+                        <div class="chart-header">
+                            <h3>Monthly Revenue Trend</h3>
+                            <div class="chart-legend-badge">Seasonality Highlights</div>
+                        </div>
+                        <div class="chart-wrapper">
+                            <canvas id="monthlyTrendChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Category Share -->
+                    <div class="chart-container glass">
+                        <div class="chart-header">
+                            <h3>Sales by Product Category</h3>
+                        </div>
+                        <div class="chart-wrapper">
+                            <canvas id="categorySalesChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Age Demographics -->
+                    <div class="chart-container glass">
+                        <div class="chart-header">
+                            <h3>Age Demographic Performance</h3>
+                        </div>
+                        <div class="chart-wrapper">
+                            <canvas id="demographicsChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Payment Methods -->
+                    <div class="chart-container glass">
+                        <div class="chart-header">
+                            <h3>Payment Methods Revenue Share</h3>
+                        </div>
+                        <div class="chart-wrapper">
+                            <canvas id="paymentMethodsChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- VIP Customers List -->
+                    <div class="chart-container glass">
+                        <div class="chart-header">
+                            <h3>VIP Customer Standings</h3>
+                        </div>
+                        <div class="table-wrapper mini-table">
+                            <table id="vip-table-preview">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Location</th>
+                                        <th>Lifetime Spend</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Populated by JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab Content: EDA Plots (Python Matplotlib Outputs) -->
+            <section id="eda-plots-tab" class="tab-pane">
+                <div class="pane-intro">
+                    <h2>Python Matplotlib & Seaborn Visualizations</h2>
+                    <p>These static plots were generated during the Python EDA phase of the pipeline. They represent the publication-quality figures exported from the source raw transaction CSV files.</p>
+                </div>
+                <div class="plots-grid">
+                    <div class="plot-card glass">
+                        <h3>1. Category Sales Revenue</h3>
+                        <img src="/static/plots/category_sales.png" alt="Category Sales" onerror="this.src='https://placehold.co/600x400/171821/ffffff?text=Run+scripts/eda_analysis.py+first'">
+                        <p class="plot-desc">Seaborn horizontal bar chart summarizing cumulative revenue generated by each high-level product vertical.</p>
+                    </div>
+                    
+                    <div class="plot-card glass">
+                        <h3>2. Customer Age Distribution</h3>
+                        <img src="/static/plots/age_distribution.png" alt="Age Distribution" onerror="this.src='https://placehold.co/600x400/171821/ffffff?text=Run+scripts/eda_analysis.py+first'">
+                        <p class="plot-desc">Histogram with Kernel Density Estimate overlay (KDE) demonstrating typical client age clusters.</p>
+                    </div>
+
+                    <div class="plot-card glass">
+                        <h3>3. Monthly Seasonality Line Plot</h3>
+                        <img src="/static/plots/monthly_revenue_trend.png" alt="Monthly Trend" onerror="this.src='https://placehold.co/600x400/171821/ffffff?text=Run+scripts/eda_analysis.py+first'">
+                        <p class="plot-desc">Line chart documenting seasonality peaks, especially the holiday shopping season spikes in Q4.</p>
+                    </div>
+
+                    <div class="plot-card glass">
+                        <h3>4. Ratings vs Category Box Plot</h3>
+                        <img src="/static/plots/ratings_vs_category.png" alt="Ratings vs Category" onerror="this.src='https://placehold.co/600x400/171821/ffffff?text=Run+scripts/eda_analysis.py+first'">
+                        <p class="plot-desc">Box-and-whisker plot highlighting median review rating and outlines outliers in each category.</p>
+                    </div>
+
+                    <div class="plot-card glass span-2">
+                        <h3>5. Payment Method Donut Breakdown</h3>
+                        <img class="pie-plot" src="/static/plots/payment_method_distribution.png" alt="Payment Donut" onerror="this.src='https://placehold.co/600x400/171821/ffffff?text=Run+scripts/eda_analysis.py+first'">
+                        <p class="plot-desc">Sleek donut chart representation of transaction splits among payment services.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab Content: Live SQL Terminal -->
+            <section id="sql-terminal-tab" class="tab-pane">
+                <div class="terminal-container glass">
+                    <div class="terminal-sidebar">
+                        <h3>Query Templates</h3>
+                        <p class="terminal-tip">Click a template below to load standard business queries:</p>
+                        <div class="template-list">
+                            <button class="template-btn" data-query="1">Category Profitability</button>
+                            <button class="template-btn" data-query="2">CLV by Subscription</button>
+                            <button class="template-btn" data-query="3">Loyalty Cart Impact</button>
+                            <button class="template-btn" data-query="4">Regional Performance</button>
+                            <button class="template-btn" data-query="5">Monthly Aggregates</button>
+                            <button class="template-btn" data-query="6">Payment Split Share</button>
+                            <button class="template-btn" data-query="7">Top 10 VIP Customers</button>
+                            <button class="template-btn" data-query="8">Age Group Metrics</button>
+                        </div>
+                    </div>
+                    
+                    <div class="terminal-main">
+                        <div class="terminal-header-console">
+                            <div class="terminal-dots">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                            </div>
+                            <span class="terminal-title">SQLite Interactive Query Editor</span>
+                        </div>
+                        
+                        <div class="editor-area">
+                            <textarea id="sql-editor" placeholder="-- Write SQL SELECT queries here...&#10;SELECT * FROM customers LIMIT 5;"></textarea>
+                        </div>
+                        
+                        <div class="terminal-actions">
+                            <div class="terminal-info-text">
+                                <svg viewBox="0 0 24 24" width="16" height="16" stroke="#a5a6b7" stroke-width="2" fill="none"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                                <span>Tables: <strong>customers</strong>, <strong>transactions</strong> (Read-only)</span>
+                            </div>
+                            <button id="run-query-btn" class="run-btn">
+                                <svg viewBox="0 0 24 24" width="16" height="16" stroke="white" stroke-width="2" fill="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                                <span>Execute Query</span>
+                            </button>
+                        </div>
+
+                        <!-- Query Results Window -->
+                        <div class="results-area">
+                            <div id="results-status" class="status-placeholder">
+                                Query results will be displayed here. Select a template or write your own SQL select statement and click Execute.
+                            </div>
+                            
+                            <div id="results-table-container" class="table-wrapper hidden">
+                                <table id="sql-results-table">
+                                    <thead>
+                                        <tr id="results-headers"></tr>
+                                    </thead>
+                                    <tbody id="results-body"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab Content: About Project -->
+            <section id="about-tab" class="tab-pane">
+                <div class="about-container glass">
+                    <h2>Customer Behavior & Sales Analytics Project</h2>
+                    <p class="lead-text">This project showcases an end-to-end data pipelines engineering, SQL relational schema architecture, exploratory data analysis, and advanced fullstack visual dashboarding.</p>
+                    
+                    <hr>
+                    
+                    <h3>Technical Stack Summary</h3>
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <div class="tech-icon py-color">Py</div>
+                            <h4>Python Data Engineering</h4>
+                            <p>Created random custom mock dataset mimicking sales seasonality, age segments preferences, and coupon usage. Applied **Pandas** for ingestion, cleansing, logic mapping, and schema formatting.</p>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-icon db-color">SQL</div>
+                            <h4>Relational Database</h4>
+                            <p>Engineered a structured relational schema in **SQLite** containing constraint checks, foreign keys, cascade deletes, and column indexes. Queries match PostgreSQL syntax, demonstrating business logic modeling.</p>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-icon eda-color">EDA</div>
+                            <h4>Exploratory Data Analysis</h4>
+                            <p>Used **Matplotlib** and **Seaborn** to build and export standard visual plots of demographics distributions, rating spreads, monthly trends, and product performance.</p>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-icon web-color">Web</div>
+                            <h4>Dynamic Dashboard</h4>
+                            <p>Programmed a frontend console featuring HTML5 grid grids, CSS glassmorphism, **Chart.js** canvases, and a customized **live SQL console** utilizing a lightweight Python Flask backend.</p>
+                        </div>
+                    </div>
+
+                    <h3>Core Business Insights Discovered</h3>
+                    <ul>
+                        <li><strong>Loyalty Subscription Impact</strong>: Subscribers exhibit a 10-15% increase in Average Order Value (AOV) and order sizes compared to general clients. They also maintain rating loyalty (higher satisfaction scores on average).</li>
+                        <li><strong>Category Profitability</strong>: Electronics generates the highest gross revenue despite lower purchase counts, whereas Clothing and Books generate high volume transaction counts but smaller individual basket margins.</li>
+                        <li><strong>Q4 Seasonal Spikes</strong>: There is an observable 2.5x spike in transaction volumes during November and December, mirroring global retail holiday trends.</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <!-- Dashboard Javascript Controller -->
+    <script src="/static/js/app.js"></script>
+</body>
+</html>

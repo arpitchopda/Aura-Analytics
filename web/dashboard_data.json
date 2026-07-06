@@ -1,0 +1,447 @@
+{
+    "kpis": {
+        "total_revenue": 3211952.48,
+        "total_customers": 1200,
+        "avg_order_value": 214.13,
+        "avg_rating": 3.9,
+        "total_orders": 15000
+    },
+    "categories": [
+        {
+            "category": "Electronics",
+            "total_items_sold": 5274,
+            "total_revenue": 2192621.29,
+            "average_rating": 3.87
+        },
+        {
+            "category": "Home & Kitchen",
+            "total_items_sold": 3581,
+            "total_revenue": 295808.67,
+            "average_rating": 3.86
+        },
+        {
+            "category": "Clothing",
+            "total_items_sold": 4938,
+            "total_revenue": 279568.72,
+            "average_rating": 3.86
+        },
+        {
+            "category": "Sports & Outdoors",
+            "total_items_sold": 3091,
+            "total_revenue": 198172.56,
+            "average_rating": 3.88
+        },
+        {
+            "category": "Beauty & Personal Care",
+            "total_items_sold": 3613,
+            "total_revenue": 146280.83,
+            "average_rating": 3.86
+        },
+        {
+            "category": "Books",
+            "total_items_sold": 3765,
+            "total_revenue": 99500.41,
+            "average_rating": 3.88
+        }
+    ],
+    "subscription_clv": [
+        {
+            "subscription_status": "No",
+            "total_customers": 821,
+            "total_revenue": 2156916.82,
+            "average_revenue_per_customer": 2627.18
+        },
+        {
+            "subscription_status": "Yes",
+            "total_customers": 379,
+            "total_revenue": 1055035.66,
+            "average_revenue_per_customer": 2783.74
+        }
+    ],
+    "subscription_behavior": [
+        {
+            "subscription_status": "No",
+            "total_transactions": 10191,
+            "avg_items_per_order": 1.61,
+            "average_order_value": 211.65,
+            "average_rating": 3.78,
+            "discount_utilization_pct": 15.317436954175253
+        },
+        {
+            "subscription_status": "Yes",
+            "total_transactions": 4809,
+            "avg_items_per_order": 1.62,
+            "average_order_value": 219.39,
+            "average_rating": 4.06,
+            "discount_utilization_pct": 49.86483676440008
+        }
+    ],
+    "locations": [
+        {
+            "location": "California",
+            "customer_count": 277,
+            "total_revenue": 722184.88,
+            "spend_per_customer": 2607.17
+        },
+        {
+            "location": "New York",
+            "customer_count": 224,
+            "total_revenue": 597733.02,
+            "spend_per_customer": 2668.45
+        },
+        {
+            "location": "Texas",
+            "customer_count": 173,
+            "total_revenue": 480972.51,
+            "spend_per_customer": 2780.19
+        },
+        {
+            "location": "Florida",
+            "customer_count": 138,
+            "total_revenue": 407205.99,
+            "spend_per_customer": 2950.77
+        },
+        {
+            "location": "Illinois",
+            "customer_count": 90,
+            "total_revenue": 241134.57,
+            "spend_per_customer": 2679.27
+        },
+        {
+            "location": "Washington",
+            "customer_count": 82,
+            "total_revenue": 218886.37,
+            "spend_per_customer": 2669.35
+        },
+        {
+            "location": "Georgia",
+            "customer_count": 61,
+            "total_revenue": 175958.85,
+            "spend_per_customer": 2884.57
+        },
+        {
+            "location": "Massachusetts",
+            "customer_count": 75,
+            "total_revenue": 170179.89,
+            "spend_per_customer": 2269.07
+        },
+        {
+            "location": "Ohio",
+            "customer_count": 48,
+            "total_revenue": 120484.84,
+            "spend_per_customer": 2510.1
+        },
+        {
+            "location": "Colorado",
+            "customer_count": 32,
+            "total_revenue": 77211.56,
+            "spend_per_customer": 2412.86
+        }
+    ],
+    "monthly_trends": [
+        {
+            "month": "2024-01",
+            "total_orders": 623,
+            "monthly_revenue": 149290.62,
+            "average_order_value": 239.63
+        },
+        {
+            "month": "2024-02",
+            "total_orders": 560,
+            "monthly_revenue": 112139.77,
+            "average_order_value": 200.25
+        },
+        {
+            "month": "2024-03",
+            "total_orders": 668,
+            "monthly_revenue": 132564.46,
+            "average_order_value": 198.45
+        },
+        {
+            "month": "2024-04",
+            "total_orders": 675,
+            "monthly_revenue": 142734.23,
+            "average_order_value": 211.46
+        },
+        {
+            "month": "2024-05",
+            "total_orders": 639,
+            "monthly_revenue": 121615.58,
+            "average_order_value": 190.32
+        },
+        {
+            "month": "2024-06",
+            "total_orders": 624,
+            "monthly_revenue": 146070.85,
+            "average_order_value": 234.09
+        },
+        {
+            "month": "2024-07",
+            "total_orders": 649,
+            "monthly_revenue": 137464.23,
+            "average_order_value": 211.81
+        },
+        {
+            "month": "2024-08",
+            "total_orders": 624,
+            "monthly_revenue": 127832.26,
+            "average_order_value": 204.86
+        },
+        {
+            "month": "2024-09",
+            "total_orders": 582,
+            "monthly_revenue": 120544.16,
+            "average_order_value": 207.12
+        },
+        {
+            "month": "2024-10",
+            "total_orders": 648,
+            "monthly_revenue": 130893.84,
+            "average_order_value": 202.0
+        },
+        {
+            "month": "2024-11",
+            "total_orders": 638,
+            "monthly_revenue": 135802.23,
+            "average_order_value": 212.86
+        },
+        {
+            "month": "2024-12",
+            "total_orders": 644,
+            "monthly_revenue": 144010.65,
+            "average_order_value": 223.62
+        },
+        {
+            "month": "2025-01",
+            "total_orders": 636,
+            "monthly_revenue": 148734.04,
+            "average_order_value": 233.86
+        },
+        {
+            "month": "2025-02",
+            "total_orders": 569,
+            "monthly_revenue": 108835.76,
+            "average_order_value": 191.28
+        },
+        {
+            "month": "2025-03",
+            "total_orders": 618,
+            "monthly_revenue": 140376.69,
+            "average_order_value": 227.15
+        },
+        {
+            "month": "2025-04",
+            "total_orders": 643,
+            "monthly_revenue": 117820.48,
+            "average_order_value": 183.24
+        },
+        {
+            "month": "2025-05",
+            "total_orders": 642,
+            "monthly_revenue": 150000.71,
+            "average_order_value": 233.65
+        },
+        {
+            "month": "2025-06",
+            "total_orders": 626,
+            "monthly_revenue": 140734.81,
+            "average_order_value": 224.82
+        },
+        {
+            "month": "2025-07",
+            "total_orders": 594,
+            "monthly_revenue": 119491.58,
+            "average_order_value": 201.16
+        },
+        {
+            "month": "2025-08",
+            "total_orders": 612,
+            "monthly_revenue": 139667.92,
+            "average_order_value": 228.22
+        },
+        {
+            "month": "2025-09",
+            "total_orders": 583,
+            "monthly_revenue": 116599.26,
+            "average_order_value": 200.0
+        },
+        {
+            "month": "2025-10",
+            "total_orders": 656,
+            "monthly_revenue": 158497.97,
+            "average_order_value": 241.61
+        },
+        {
+            "month": "2025-11",
+            "total_orders": 627,
+            "monthly_revenue": 129789.39,
+            "average_order_value": 207.0
+        },
+        {
+            "month": "2025-12",
+            "total_orders": 615,
+            "monthly_revenue": 137227.62,
+            "average_order_value": 223.13
+        },
+        {
+            "month": "2026-01",
+            "total_orders": 5,
+            "monthly_revenue": 3213.37,
+            "average_order_value": 642.67
+        }
+    ],
+    "payment_methods": [
+        {
+            "payment_method": "Credit Card",
+            "transaction_count": 8309,
+            "total_revenue": 1809712.79,
+            "revenue_share_pct": 56.34
+        },
+        {
+            "payment_method": "Debit Card",
+            "transaction_count": 2943,
+            "total_revenue": 619414.07,
+            "revenue_share_pct": 19.28
+        },
+        {
+            "payment_method": "PayPal",
+            "transaction_count": 2247,
+            "total_revenue": 471282.07,
+            "revenue_share_pct": 14.67
+        },
+        {
+            "payment_method": "Cash",
+            "transaction_count": 1501,
+            "total_revenue": 311543.55,
+            "revenue_share_pct": 9.7
+        }
+    ],
+    "vip_customers": [
+        {
+            "customer_id": "C10186",
+            "age": 19,
+            "gender": "Male",
+            "location": "California",
+            "subscription_status": "No",
+            "total_orders": 17,
+            "lifetime_spend": 11198.38,
+            "avg_given_rating": 3.71
+        },
+        {
+            "customer_id": "C11194",
+            "age": 23,
+            "gender": "Female",
+            "location": "New York",
+            "subscription_status": "Yes",
+            "total_orders": 19,
+            "lifetime_spend": 10607.31,
+            "avg_given_rating": 3.66
+        },
+        {
+            "customer_id": "C10562",
+            "age": 22,
+            "gender": "Female",
+            "location": "Texas",
+            "subscription_status": "No",
+            "total_orders": 19,
+            "lifetime_spend": 9916.97,
+            "avg_given_rating": 3.66
+        },
+        {
+            "customer_id": "C10665",
+            "age": 38,
+            "gender": "Female",
+            "location": "Florida",
+            "subscription_status": "Yes",
+            "total_orders": 22,
+            "lifetime_spend": 9744.11,
+            "avg_given_rating": 3.99
+        },
+        {
+            "customer_id": "C10377",
+            "age": 25,
+            "gender": "Male",
+            "location": "California",
+            "subscription_status": "No",
+            "total_orders": 20,
+            "lifetime_spend": 9691.35,
+            "avg_given_rating": 4.18
+        },
+        {
+            "customer_id": "C11171",
+            "age": 18,
+            "gender": "Female",
+            "location": "California",
+            "subscription_status": "Yes",
+            "total_orders": 14,
+            "lifetime_spend": 9443.22,
+            "avg_given_rating": 3.99
+        },
+        {
+            "customer_id": "C10340",
+            "age": 18,
+            "gender": "Male",
+            "location": "Florida",
+            "subscription_status": "No",
+            "total_orders": 11,
+            "lifetime_spend": 9063.04,
+            "avg_given_rating": 3.78
+        },
+        {
+            "customer_id": "C10623",
+            "age": 25,
+            "gender": "Non-Binary",
+            "location": "Georgia",
+            "subscription_status": "No",
+            "total_orders": 18,
+            "lifetime_spend": 9039.04,
+            "avg_given_rating": 4.36
+        },
+        {
+            "customer_id": "C10991",
+            "age": 22,
+            "gender": "Female",
+            "location": "New York",
+            "subscription_status": "No",
+            "total_orders": 17,
+            "lifetime_spend": 9032.02,
+            "avg_given_rating": 4.05
+        },
+        {
+            "customer_id": "C11057",
+            "age": 19,
+            "gender": "Female",
+            "location": "Georgia",
+            "subscription_status": "Yes",
+            "total_orders": 14,
+            "lifetime_spend": 8922.39,
+            "avg_given_rating": 4.01
+        }
+    ],
+    "demographics": [
+        {
+            "age_group": "25-40",
+            "customer_count": 441,
+            "total_spend": 1170630.94,
+            "avg_spend_per_customer": 2654.49
+        },
+        {
+            "age_group": "Under 25",
+            "customer_count": 240,
+            "total_spend": 907121.32,
+            "avg_spend_per_customer": 3779.67
+        },
+        {
+            "age_group": "41-55",
+            "customer_count": 321,
+            "total_spend": 756743.68,
+            "avg_spend_per_customer": 2357.46
+        },
+        {
+            "age_group": "Over 55",
+            "customer_count": 198,
+            "total_spend": 377456.54,
+            "avg_spend_per_customer": 1906.35
+        }
+    ]
+}
